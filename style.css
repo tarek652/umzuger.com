@@ -552,7 +552,7 @@ section > p {
 
 .service-card h3::before {
     content: "\f0d1"; /* LKW */
-    font-family: "Font Awesome 6 Free";
+    font-family: "Font Awesome 7 Free";
     font-weight: 900;
     font-size: 0.95rem;
     color: #2563eb;
@@ -775,3 +775,4 @@ footer a {
         justify-content: center;
     }
 }
+
