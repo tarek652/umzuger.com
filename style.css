@@ -460,6 +460,10 @@ section > p {
     border-radius: var(--radius-sm);
     border: 1px solid #e5e7eb;
     background: #f9fafb;
+    min-height: 72px; /* gleiche Höhe */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .hero-stat .label {
@@ -547,48 +551,57 @@ section > p {
     text-transform: uppercase;
 }
 
+/* Liste als „Ausrichtungs-Grid“ */
 .service-card ul {
     list-style: none;
     padding: 0;
     margin: 0;
     font-size: 0.92rem;
     color: #374151;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
 }
 
+/* Standard-Bullets */
 .service-card ul > li {
-    position: relative;
-    padding-left: 1.1rem;
-    margin-bottom: 0.45rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    padding: 0;
+    margin: 0;
 }
 
 .service-card ul > li::before {
     content: "";
-    position: absolute;
-    left: 0;
-    top: 0.65rem;
-    width: 5px;
-    height: 1px;
+    flex: 0 0 6px;
+    height: 6px;
+    border-radius: 999px;
+    margin-top: 0.45rem;
     background: #111827;
 }
 
-/* TOGGLE POINTS */
+/* Toggle-Items: eigenes Layout, kein Bullet-Punkt davor */
 .toggle-item {
     cursor: pointer;
     border-radius: 0.7rem;
-    padding: 0.5rem 0.75rem 0.5rem 1.1rem;
-    margin-left: -0.4rem;
-    margin-right: -0.4rem;
+    padding: 0.55rem 0.7rem;
+    margin: 0;
     background: #f9fafb;
     border: 1px dashed #e5e7eb;
     transition: background 0.14s ease, border-color 0.14s ease;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
 }
 
 .toggle-item::before {
-    top: 0.7rem;
+    content: none; /* Bullet aus Standard-Regel deaktivieren */
 }
 
+/* Text + Plus-Zeichen exakt ausgerichtet */
 .toggle-item .toggle-btn {
-    float: right;
+    margin-left: auto;
     font-weight: 600;
     font-size: 0.9rem;
     color: var(--primary-dark);
@@ -600,18 +613,34 @@ section > p {
     border-color: #d1d5db;
 }
 
+/* Unterpunkte in den Toggle-Details */
 .toggle-details {
     display: none;
     margin-top: 0.45rem;
-    padding-left: 0.2rem;
+    padding-left: 0;      /* kein zusätzlicher Einzug */
+    width: 100%;
 }
 
 .toggle-details li {
-    padding-left: 1.1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0.18rem 0;
     font-size: 0.88rem;
     color: #4b5563;
 }
 
+.toggle-details li::before {
+    content: "";
+    flex: 0 0 4px;
+    height: 4px;
+    border-radius: 999px;
+    margin-top: 0.5rem;
+    background: #9ca3af;
+}
+
+/* geöffnet / geschlossen */
 .toggle-item.open .toggle-details {
     display: block;
 }
@@ -748,3 +777,4 @@ footer a {
         justify-content: center;
     }
 }
+
